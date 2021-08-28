@@ -73,7 +73,11 @@ HR has asked you to change the data to make it easier to print so that it looks 
 ------------------------------------------------------------------------------------------------ */
 
 const updateNumbers = (obj) => {
-  // Solution code here...
+  let phoneArr = [];
+  for (let property in obj){
+    phoneArr.push(`${property}: ${obj[property]}`);
+  }
+  return phoneArr;
 };
 
 
@@ -129,7 +133,9 @@ const characters = [
 
 const getHouses = (arr) => {
   let houses = [];
-  // Solution code here...
+  for (let person of arr){
+    houses.push(person.house);
+  }
   return houses;
 };
 
@@ -146,8 +152,17 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
-
+  let value = false;
+  arr.forEach(person =>{
+    if(person.name === character){
+      Object.values(person).forEach(item =>{
+        if (typeof item === 'object'){
+          value = true;
+        }
+      });
+    }
+  });
+  return value;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -248,7 +263,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should return an an array of names and numbers', () => {
     const startingObj = {
       'Grace Hopper': '222-303-5938',
@@ -260,7 +275,7 @@ xdescribe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should return an array of the names of the houses', () => {
     expect(getHouses(characters)[0]).toStrictEqual('Stark');
     expect(getHouses(characters).length).toStrictEqual(7);
@@ -268,7 +283,7 @@ xdescribe('Testing challenge 5', () => {
 });
 
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   test('It should return true for characters that have children', () => {
     expect(hasChildrenValues(characters, 'Daenarys')).toBeTruthy();
   });
