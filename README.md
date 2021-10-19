@@ -22,6 +22,6 @@ To run your tests
 
 - Please follow the instructions specific to your 401 language, which can be found in the directory below, matching your course.
 
-## Table of Contents
+### Table of Contents
 
 [Array Reverse](./javascript/code-challenges/array-reverse/README.md)
