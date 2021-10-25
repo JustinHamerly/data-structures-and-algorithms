@@ -13,6 +13,7 @@ class LinkedList {
 
   constructor(){
     this.head = null;
+    this.tail = null;
   }
 
   insert (value){
@@ -20,6 +21,7 @@ class LinkedList {
       let newNode = new Node(value);
       if (this.head === null){
         this.head = newNode;
+        this.tail = newNode;
       } else {
         let nextValue = this.head;
         this.head = newNode;
@@ -28,6 +30,60 @@ class LinkedList {
     }catch(err){
       console.error(`couldn't insert a value, ${err}`);
       throw `couldn't insert a value, ${err}`;
+    }
+  }
+
+  insertBefore (value, newValue){
+    try{
+      let newNode = new Node(newValue);
+      let currentNode = this.head;
+      let previousNode = null;
+      while (currentNode.value !== value){
+        previousNode = currentNode;
+        currentNode = currentNode.next;
+      }
+      newNode.next = currentNode;
+      if(previousNode){
+        previousNode.next = newNode;
+      }else{
+        this.head = newNode;
+      }
+    }catch(err){
+      console.error(`couldn't insert a value before value: ${value}, ${err}`);
+      throw `couldn't insert a value before value: ${value}, ${err}`;
+    }
+  }
+
+  insertAfter (value, newValue){
+    try{
+      let newNode = new Node(newValue);
+      let currentNode = this.head;
+      let nextNode = currentNode.next;
+      while (currentNode.value !== value){
+        currentNode = currentNode.next;
+        nextNode = currentNode.next;
+      }
+      newNode.next = nextNode;
+      currentNode.next = newNode;
+    }catch(err){
+      console.error(`couldn't insert a value after value: ${value}, ${err}`);
+      throw `couldn't insert a value after value: ${value}, ${err}`;
+    }
+  }
+
+  append (value){
+    let newNode = new Node(value);
+    try{
+      if (this.head === null){
+        this.head = newNode;
+        this.tail = newNode;
+      }else{
+        this.tail.next = newNode;
+        this.tail = newNode;
+      }
+    }catch(err){
+      console.error(`couldn't append linked list, ${err}`);
+      throw `couldn't append linked list, ${err}`;
     }
   }
 

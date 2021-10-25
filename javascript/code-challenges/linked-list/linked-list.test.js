@@ -56,4 +56,41 @@ describe('testing linked list functions', () => {
     expect(list.toString()).toBe('{ 1 } -> { 3 } -> { 5 } -> NULL');
   });
 
+  it('can properly append a value at the tail of the linked list, and can append multiple times', () => {
+    let list = new LinkedList();
+    list.insert(5);
+    list.insert(3);
+    list.insert(1);
+    list.append(7);
+    expect(list.tail.value).toBe(7);
+    list.append(9);
+    expect(list.tail.value).toBe(9);
+  });
+
+  it('can insert a node immediately before the first node with the inputted value, including the first node in the linked list', () => {
+    let list = new LinkedList();
+    list.insert(5);
+    list.insert(3);
+    list.insert(1);
+    list.insertBefore(5, 4);
+    expect(list.head.next.next.value).toBe(4);
+    expect(list.head.next.value).toBe(3);
+    expect(list.head.next.next.next.value).toBe(5);
+    list.insertBefore(1, 0);
+    expect(list.head.value).toBe(0);
+    expect(list.head.next.value).toBe(1);
+  });
+
+  it('can insert a node immediately after the first node with the inputted value, including after the last node in the linked list', () => {
+    let list = new LinkedList();
+    list.insert(3);
+    list.insert(1);
+    list.insertAfter(1, 2);
+    expect(list.head.next.value).toBe(2);
+    expect(list.head.next.next.value).toBe(3);
+    list.insertAfter(3, 4);
+    expect(list.head.next.next.next.value).toBe(4);
+    expect(list.head.next.next.next.next).toBe(null);
+  });
+
 });
