@@ -1,18 +1,9 @@
-# Linked List
-
-
-
-* create a Node class  
-* LinkedList class that can create a linked list, with functions for checking for values, adding new nodes, and returning a string showing the nodes in the linked list.
-* write tests to ensure all functions of the linked list constructor function as expected.
-
-
 # Singly-Linked List
 
 ## Problem Domain
 
 * create a Node class
-* create a LinkedList class that can create a linked list, with functions for checking for values, adding new nodes, and returning a string showing the nodes in the linked list, appending the linked list, and inserting nodes before or after existing nodes.
+* create a LinkedList class that can create a linked list, with functions for checking for values, adding new nodes, and returning a string showing the nodes in the linked list, appending the linked list, inserting nodes before or after existing nodes, and finding/returning the node that is 'k' positions from the tail of the list.
 *write tests to ensure all functions of the linked list constructor function as expected.
 
 ### Challenges
@@ -53,6 +44,11 @@ arguments: value, newValue
 returns: nothing  
 Searches for the value, and inserts a new node with the new value after the node with the searched value
 
+*kthFromEnd*
+arguments: number (k)  
+returns: node's value k places from the tail of the linked list
+counts how many nodes are in the linked list, and traverses the linked list (count - k) times, and returns that value.
+
 *Any exceptions or errors that come from your code should be semantic, capture-able errors.*
 
 ## tests to prove the following functionality:
@@ -66,10 +62,17 @@ Searches for the value, and inserts a new node with the new value after the node
 * Can properly return a collection of all the values that exist in the linked list
 * Can successfully add a node to the end of the linked list
 * Can successfully add multiple nodes to the end of a linked list
-* Can successfully insert a node before a node located i the middle of a linked list
-* Can successfully insert a node before the first node of a linked list
-* Can successfully insert after a node in the middle of the linked list
-* Can successfully insert a node after the last node of the linked list
+* Can successfully insert a node:
+  * before a node located i the middle of a linked list
+  * before the first node of a linked list
+  * after a node in the middle of the linked list
+  * after the last node of the linked list
+* run kth from the end of the linked list:
+  * Where k is greater than the length of the linked list
+  * Where k and the length of the list are the same
+  * Where k is not a positive integer
+  * Where the linked list is of a size 1
+  * “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
 
 ## Approach & Efficiency
 

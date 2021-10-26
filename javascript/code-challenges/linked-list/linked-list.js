@@ -104,6 +104,35 @@ class LinkedList {
     }
   }
 
+  kthFromEnd(k){
+    try{
+      if(k === 0){
+        return this.tail.value;
+      }
+      if(k < 0){
+        return console.log('input should be a positive integer');
+      }
+      let counter = 0;
+      let currentNode = this.head;
+      while (currentNode){
+        counter = counter + 1;
+        currentNode = currentNode.next;
+      }
+      let position = counter - k;
+      if(position<1){
+        return console.log(`linked list has less than ${k} nodes`);
+      }
+      currentNode = this.head;
+      for(let i=1; i<position; i++){
+        currentNode = currentNode.next;
+      }
+      return currentNode.value;
+    }catch(err){
+      console.error(`couldn't find node ${k} places from end of linked list, ${err}`);
+      throw `couldn't find node ${k} places from end of linked list, ${err}`;
+    }
+  }
+
   toString(){
     try{
       let string = '';
