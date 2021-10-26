@@ -93,4 +93,51 @@ describe('testing linked list functions', () => {
     expect(list.head.next.next.next.next).toBe(null);
   });
 
+  it('should return the value of the node k positions from the end of the linked list given k is a position in the middle of the list', () => {
+    let list = new LinkedList();
+    list.insert(1);
+    list.append(2);
+    list.append(3);
+    list.append(4);
+    list.append(5);
+    list.append(6);
+    expect(list.kthFromEnd(2)).toBe(4);
+  });
+
+  it('should return the value of the node k positions from the end of the linked list given k is the position at the end of the list (k=0) ', () => {
+    let list = new LinkedList();
+    list.insert(1);
+    list.append(2);
+    list.append(3);
+    list.append(4);
+    list.append(5);
+    list.append(6);
+    expect(list.kthFromEnd(0)).toBe(6);
+  });
+
+  it('should return the value of the node k positions from the end of the linked list given k is the length of the list ', () => {
+    let list = new LinkedList();
+    list.insert(1);
+    list.append(2);
+    list.append(3);
+    list.append(4);
+    list.append(5);
+    list.append(6);
+    expect(list.kthFromEnd(6)).toBe(undefined);
+  });
+
+  it('should return undefined if k is greater than the length of the list', () => {
+    let list = new LinkedList();
+    list.insert(1);
+    list.append(2);
+    list.append(3);
+    expect(list.kthFromEnd(4)).toBe(undefined);
+  });
+
+  it('should return a value if the linked list size is 1', () => {
+    let list = new LinkedList();
+    list.insert(1);
+    expect(list.kthFromEnd(0)).toBe(1);
+  });
+
 });
