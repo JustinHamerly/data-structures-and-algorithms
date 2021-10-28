@@ -1,6 +1,6 @@
 'use strict';
 
-const { LinkedList } = require('./linked-list.js');
+const { LinkedList, zipLists } = require('./linked-list.js');
 
 describe('testing linked list functions', () => {
 
@@ -138,6 +138,71 @@ describe('testing linked list functions', () => {
     let list = new LinkedList();
     list.insert(1);
     expect(list.kthFromEnd(0)).toBe(1);
+  });
+
+});
+
+describe('testing zipped list functionality', () => {
+
+  it('should be able to zip two lists of the same length', () => {
+    let list1 = new LinkedList();
+    let list2 = new LinkedList();
+    list1.insert(1);
+    list1.append(3);
+    list1.append(5);
+    list2.insert(2);
+    list2.append(4);
+    list2.append(6);
+
+    let zipped = zipLists(list1, list2);
+    expect(zipped.count).toBe(6);
+    expect(zipped.head.value).toBe(1);
+    expect(zipped.tail.value).toBe(6);
+  });
+
+  it('should be able to zip two lists if the first list is longer than the 2nd list', () => {
+    let list1 = new LinkedList();
+    let list2 = new LinkedList();
+    list1.insert(1);
+    list1.append(3);
+    list1.append(5);
+    list1.append(7);
+    list1.append(8);
+    list2.insert(2);
+    list2.append(4);
+    list2.append(6);
+
+    let zipped = zipLists(list1, list2);
+    expect(zipped.count).toBe(8);
+    expect(zipped.head.value).toBe(1);
+    expect(zipped.tail.value).toBe(8);
+  });
+
+  it('should be able to zip two lists if the second list is longer than the 1st list', () => {
+
+    let list1 = new LinkedList();
+    let list2 = new LinkedList();
+    list1.insert(1);
+    list1.append(3);
+    list1.append(5);
+    list2.insert(2);
+    list2.append(4);
+    list2.append(6);
+    list2.append(7);
+    list2.append(8);
+
+    let zipped = zipLists(list1, list2);
+    expect(zipped.count).toBe(8);
+    expect(zipped.head.value).toBe(1);
+    expect(zipped.tail.value).toBe(8);
+
+  });
+
+  it('should return an empty linked list if no nodes exist in either argument', () => {
+    let list1 = new LinkedList();
+    let list2 = new LinkedList();
+    let zipped = zipLists(list1, list2);
+    expect(zipped.head).toBe(null);
   });
 
 });

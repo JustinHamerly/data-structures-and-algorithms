@@ -14,6 +14,7 @@ class LinkedList {
   constructor(){
     this.head = null;
     this.tail = null;
+    this.count = 0;
   }
 
   insert (value){
@@ -22,10 +23,12 @@ class LinkedList {
       if (this.head === null){
         this.head = newNode;
         this.tail = newNode;
+        this.count = this.count + 1;
       } else {
         let nextValue = this.head;
         this.head = newNode;
         newNode.next = nextValue;
+        this.count = this.count + 1;
       }
     }catch(err){
       console.error(`couldn't insert a value, ${err}`);
@@ -45,8 +48,10 @@ class LinkedList {
       newNode.next = currentNode;
       if(previousNode){
         previousNode.next = newNode;
+        this.count = this.count + 1;
       }else{
         this.head = newNode;
+        this.count = this.count + 1;
       }
     }catch(err){
       console.error(`couldn't insert a value before value: ${value}, ${err}`);
@@ -65,6 +70,7 @@ class LinkedList {
       }
       newNode.next = nextNode;
       currentNode.next = newNode;
+      this.count = this.count + 1;
     }catch(err){
       console.error(`couldn't insert a value after value: ${value}, ${err}`);
       throw `couldn't insert a value after value: ${value}, ${err}`;
@@ -77,9 +83,11 @@ class LinkedList {
       if (this.head === null){
         this.head = newNode;
         this.tail = newNode;
+        this.count = this.count + 1;
       }else{
         this.tail.next = newNode;
         this.tail = newNode;
+        this.count = this.count + 1;
       }
     }catch(err){
       console.error(`couldn't append linked list, ${err}`);
@@ -112,17 +120,11 @@ class LinkedList {
       if(k < 0){
         return console.log('input should be a positive integer');
       }
-      let counter = 0;
-      let currentNode = this.head;
-      while (currentNode){
-        counter = counter + 1;
-        currentNode = currentNode.next;
-      }
-      let position = counter - k;
+      let position = this.count - k;
       if(position<1){
         return console.log(`linked list has less than ${k} nodes`);
       }
-      currentNode = this.head;
+      let currentNode = this.head;
       for(let i=1; i<position; i++){
         currentNode = currentNode.next;
       }
@@ -152,6 +154,31 @@ class LinkedList {
 
 }
 
+function zipLists (list1, list2){
+  let zippedList = new LinkedList();
+  let listOneCurrent = list1.head;
+  let listTwoCurrent = list2.head;
+  while(listOneCurrent && listTwoCurrent){
+    zippedList.append(listOneCurrent.value);
+    listOneCurrent = listOneCurrent.next;
+    zippedList.append(listTwoCurrent.value);
+    listTwoCurrent = listTwoCurrent.next;
+  }
+  if (listOneCurrent){
+    while (listOneCurrent){
+      zippedList.append(listOneCurrent.value);
+      listOneCurrent = listOneCurrent.next;
+    }
+  } else if (listTwoCurrent){
+    while (listTwoCurrent){
+      zippedList.append(listTwoCurrent.value);
+      listTwoCurrent = listTwoCurrent.next;
+    }
+  }
+  return zippedList;
+}
+
 module.exports = {
   LinkedList,
+  zipLists,
 };
