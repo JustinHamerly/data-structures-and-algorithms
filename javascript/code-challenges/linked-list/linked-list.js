@@ -164,16 +164,13 @@ function zipLists (list1, list2){
     zippedList.append(listTwoCurrent.value);
     listTwoCurrent = listTwoCurrent.next;
   }
-  if (listOneCurrent){
-    while (listOneCurrent){
-      zippedList.append(listOneCurrent.value);
-      listOneCurrent = listOneCurrent.next;
-    }
-  } else if (listTwoCurrent){
-    while (listTwoCurrent){
-      zippedList.append(listTwoCurrent.value);
-      listTwoCurrent = listTwoCurrent.next;
-    }
+  while (listOneCurrent){
+    zippedList.append(listOneCurrent.value);
+    listOneCurrent = listOneCurrent.next;
+  }
+  while (listTwoCurrent){
+    zippedList.append(listTwoCurrent.value);
+    listTwoCurrent = listTwoCurrent.next;
   }
   return zippedList;
 }
