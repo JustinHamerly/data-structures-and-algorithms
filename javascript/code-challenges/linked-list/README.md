@@ -6,9 +6,9 @@
 * create a LinkedList class that can create a linked list, with functions for checking for values, adding new nodes, and returning a string showing the nodes in the linked list, appending the linked list, inserting nodes before or after existing nodes, and finding/returning the node that is 'k' positions from the tail of the list.
 *write tests to ensure all functions of the linked list constructor function as expected.
 
-### Challenges
+## Challenges
 
-#### Create a Linked List class
+## Create a Linked List class
 
 Within your Linked List class, include a head property.
 Upon instantiation, an empty Linked List should be created.
@@ -51,7 +51,21 @@ counts how many nodes are in the linked list, and traverses the linked list (cou
 
 *Any exceptions or errors that come from your code should be semantic, capture-able errors.*
 
-## tests to prove the following functionality:
+## Create a function for zipping two linked lists together
+
+*zipLists(list1, list2)*  
+takes in two arguments - two linked lists  
+returns a new linked list with values alternating between the two lists, starting with the first list, and alternating back and forth.
+
+>Example:
+>Input: `list1` 1->3->5->7->Null `list2` 2->4->6->Null  
+>Output `zippedList` 1->2->3->4->5->6->7->Null
+
+works with lists of different lengths, or equal lengths
+
+## tests to prove the following functionality
+
+### LinkedList class
 
 * Can successfully instantiate an empty linked list
 * Can properly insert into the linked list
@@ -74,8 +88,15 @@ counts how many nodes are in the linked list, and traverses the linked list (cou
   * Where the linked list is of a size 1
   * “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
 
+### zipLists Function
+
+* two lists of equal lengths can zip together
+* two lists of different lengths (either first or second arugment being longer) can zip together
+* if both linked lists have no nodes, will return an empty linked list
+
 ## Approach & Efficiency
 
 I used the iterative approach for the includes method and the toString within the LinkedList class.
 
-for includes and toString - space is constant, time is O(n)
+for `.includes` and `.toString` - space is constant, time is O(n)
+`zipLists()` - space is constant, time is O(n)
