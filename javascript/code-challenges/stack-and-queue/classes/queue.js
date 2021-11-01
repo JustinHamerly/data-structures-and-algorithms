@@ -48,4 +48,5 @@ module.exports = class Queue {
   isEmpty(){
     return this.front === null;
   }
+
 };

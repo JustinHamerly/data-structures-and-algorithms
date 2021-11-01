@@ -2,7 +2,7 @@
 
 Author: Justin Hamerly  
 
-Stack and Queue classes with built in methods utilizing a Node class and an Exception class.  
+Stack, Queue and PseudoQueue classes with built in methods utilizing a Node class and an Exception class.  
 Includes comprehensive tests for all methods.
 
 ## Challenge
@@ -20,6 +20,12 @@ Includes comprehensive tests for all methods.
 
 * Create a Queue class that has a front property. It creates an empty Queue when instantiated.  
   * This object should be aware of a default empty value assigned to `front` when the queue is created.  
+
+### PseudoQueue
+
+* Create a new PseudoQueue class
+  * Doesn't use existing Queue class
+  * Implements standard queue interface with 2 internal Stack instances.
 
 ## Approach & Efficiency
 
@@ -69,6 +75,18 @@ Push and enqueue methods are using constant O(1) time efficiency by using proper
   Arguments: none  
   Returns: Boolean indicating whether or not the queue is empty
 
+### PseudoQueue Methods
+
+  *enqueue*  
+  Arguments: value  
+  Inserts value into the PseudoQueue, using a *first-in, first-out* approach (Stack)
+
+  *dequeue*  
+  Arguments: none  
+  Extracts a value from the PseudoQueue, using a *first-in, first-out* approach (Stack)
+  Should raise exception when called on empty queue  
+
+
 ## Links
 
 [Node Class](./classes/node.js)
@@ -80,3 +98,6 @@ Push and enqueue methods are using constant O(1) time efficiency by using proper
 
 [Queue Class](./classes/queue.js)  
 [Queue Tests](./__tests__/queue.test.js)  
+
+[PseudoQueue Class](./classes/pseudoQueue.js)  
+[PseudoQueue Tests](./__tests__/pseudoQueue.test.js)  
