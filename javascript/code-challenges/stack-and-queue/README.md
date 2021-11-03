@@ -3,6 +3,9 @@
 Author: Justin Hamerly  
 
 Stack, Queue and PseudoQueue classes with built in methods utilizing a Node class and an Exception class.  
+
+AnimalShelter class with built in methods for managing Cat and Dog instances  
+
 Includes comprehensive tests for all methods.
 
 ## Challenge
@@ -26,6 +29,14 @@ Includes comprehensive tests for all methods.
 * Create a new PseudoQueue class
   * Doesn't use existing Queue class
   * Implements standard queue interface with 2 internal Stack instances.
+
+### AnimalShelter
+
+* Create a class AnimalShelter which holds instances of Cat and Dog objects
+  * uses a first-in first-out approach (Queues)
+  * Three internal queues track cats, dogs and allAnimals.
+  * Functions to add or remove cats and dogs, from relevant queues.
+  * uses queue constructor [queue](./classes/queue.js)
 
 ## Approach & Efficiency
 
@@ -79,13 +90,25 @@ Push and enqueue methods are using constant O(1) time efficiency by using proper
 
   *enqueue*  
   Arguments: value  
-  Inserts value into the PseudoQueue, using a *first-in, first-out* approach (Stack)
+  Inserts value into the PseudoQueue, using a *first-in, first-out* approach
 
   *dequeue*  
   Arguments: none  
-  Extracts a value from the PseudoQueue, using a *first-in, first-out* approach (Stack)
+  Extracts a value from the PseudoQueue, using a *first-in, first-out* approach
   Should raise exception when called on empty queue  
 
+### AnimalShelter methods
+
+  *enqueue*  
+  Arguments: Cat or Dog object  
+  Inserts object into either dog or cat queue, depending on their type, using a *first-in, first-out* approach (Queue)  
+  Also inserts the animal object into an allAnimals queue.
+
+  *dequeue*  
+  Arguments: 'dog', 'cat' or empty  
+  Extracts a dog or cat from the appropriate queues in the shelter, using a *first-in, first-out* approach (Queue)
+  Raises exception when an invalid argument (animal type) is passed into the function  
+  Removes oldest animal (either dog or cat) if no argument is passed into the function
 
 ## Links
 
@@ -101,3 +124,6 @@ Push and enqueue methods are using constant O(1) time efficiency by using proper
 
 [PseudoQueue Class](./classes/pseudoQueue.js)  
 [PseudoQueue Tests](./__tests__/pseudoQueue.test.js)  
+
+[Animal Shelter](./classes/animalshelter.js)  
+[Animal Shelter Tests](./__tests__/animalshelter.test.js)
