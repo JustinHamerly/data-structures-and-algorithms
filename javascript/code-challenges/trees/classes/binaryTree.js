@@ -71,6 +71,28 @@ class BinaryTree {
 
   }
 
+  findMax(){
+    return this.doFindMax(this.root);
+  }
+
+  doFindMax(node){
+    if (!node){
+      return;
+    }
+
+    let value = node.value;
+    let leftvalue = this.doFindMax(node.left);
+    let rightvalue = this.doFindMax(node.right);
+
+    if (leftvalue !== undefined && leftvalue>value){
+      value = leftvalue;
+    }else if(rightvalue !== undefined && rightvalue>value){
+      value = rightvalue;
+    }
+
+    return value;
+  }
+
 }
 
 class BST extends BinaryTree{

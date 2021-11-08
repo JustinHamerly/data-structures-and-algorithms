@@ -40,6 +40,10 @@ Searching the tree is O(n) time efficiency
   *postOrder*  
   Arguments: head node  
 
+  *findMax*  
+  arguments: none  
+  returns the highest value node in the tree recursively by comparing values.
+
 ### Binary Search Tree
 
   *add*  
