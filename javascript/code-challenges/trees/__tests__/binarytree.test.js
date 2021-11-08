@@ -3,7 +3,7 @@
 // Can successfully add a left child and right child to a single root node
 
 
-const {BinaryTree, BST} = require('../classes/binaryTree');
+const {BST} = require('../classes/binaryTree');
 
 describe('testing binary tree functions', () =>{
 
@@ -81,5 +81,22 @@ describe('testing binary tree functions', () =>{
 
   });
 
-});
+  it('returns the highest value node', () => {
+    let tree = new BST;
 
+    tree.add(50);
+    tree.add(30);
+    tree.add(70);
+    tree.add(40);
+    tree.add(100);
+    tree.add(60);
+    tree.add(20);
+    tree.add(80);
+
+    let result = tree.findMax();
+
+    expect(result).toBe(100);
+
+  });
+
+});
