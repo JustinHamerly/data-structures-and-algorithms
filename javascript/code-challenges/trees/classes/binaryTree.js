@@ -86,7 +86,8 @@ class BinaryTree {
 
     if (leftvalue !== undefined && leftvalue>value){
       value = leftvalue;
-    }else if(rightvalue !== undefined && rightvalue>value){
+    }
+    if(rightvalue !== undefined && rightvalue>value){
       value = rightvalue;
     }
 

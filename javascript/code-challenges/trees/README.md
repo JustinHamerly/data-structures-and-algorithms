@@ -4,6 +4,8 @@ Author: Justin Hamerly
 
 Binary Tree, Binary Search tree classes with built in methods utilizing a Node class and an Exception class.  
 
+breadth first traversal function takes in a tree and returns an array of the values by adding the tree nodes to a queue and dequeueing the values and pushing to the array.
+
 Includes comprehensive tests for all methods.
 
 ## Challenge
@@ -56,6 +58,12 @@ Searching the tree is O(n) time efficiency
   Returns: boolean  
   checks the tree for the value given.  
 
+### Breadth First Traversal
+
+  *breadthFirst*  
+  arguments: tree  
+  returns: array of tree node values in order  
+
 ## Links
 
 [Node Class](./classes/node.js)
@@ -64,3 +72,6 @@ Searching the tree is O(n) time efficiency
 
 [Binary Tree / Binary Search Tree](./classes/binaryTree.js)  
 [Binary Tree Tests](./__tests__/binarytree.test.js)  
+
+[breadth first traversal](./classes/breadthTraversal.js)  
+[breadth first traversal tests](./__tests__/breadthTraversal.test.js)  
