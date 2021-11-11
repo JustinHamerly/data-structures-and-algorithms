@@ -64,6 +64,12 @@ Searching the tree is O(n) time efficiency
   arguments: tree  
   returns: array of tree node values in order  
 
+### Fizz Buzz
+
+  *fizzbuzzTree*  
+  arguments: k-ary tree  
+  returns: a tree mimicking the shape of the tree argument, but with the values replaced with Fizz if the value is divisible by 3, Buzz if divisible by 5, FizzBuzz if divisible by 3 & 5, and the stringified value if anything else.
+
 ## Links
 
 [Node Class](./classes/node.js)
@@ -75,3 +81,9 @@ Searching the tree is O(n) time efficiency
 
 [breadth first traversal](./classes/breadthTraversal.js)  
 [breadth first traversal tests](./__tests__/breadthTraversal.test.js)  
+
+[K-ary Node Class](./classes/knode.js)  
+[K-ary tree Class](./classes/karytree.js)  
+
+[fizzbuzz function](./classes/fizz-buzz.js)  
+[fizzbuzz tests](./__tests__/fizzbuzz.test.js)  
