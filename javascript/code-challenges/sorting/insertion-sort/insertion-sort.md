@@ -1,6 +1,7 @@
 # **Insertion Sort**
 
 Insertion sort is a function that takes in an array of integers as an argument.  the function iterates over each item in the array, and checks if the items before it are higher than its value.  while the item we are checking is lower, we will continue to bump the higher values forward, and put the value in the correct position.  The fuction returns the array with the values sorted.
+
 ## **Pseudocode**
 
 ``` pseudocode
