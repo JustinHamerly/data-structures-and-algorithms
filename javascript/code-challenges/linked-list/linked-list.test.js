@@ -1,6 +1,6 @@
 'use strict';
 
-const { LinkedList, zipLists } = require('./linked-list.js');
+const { LinkedList, zipLists, findMeanRecursive } = require('./linked-list.js');
 
 describe('testing linked list functions', () => {
 
@@ -203,6 +203,15 @@ describe('testing zipped list functionality', () => {
     let list2 = new LinkedList();
     let zipped = zipLists(list1, list2);
     expect(zipped.head).toBe(null);
+  });
+
+  it('findMeanRecursive returns the mean of all the values in the linked list.', () => {
+    let list = new LinkedList();
+    list.insert(1);
+    list.append(3);
+    list.append(5);
+    let mean = findMeanRecursive(list);
+    expect(mean).toBe(3);
   });
 
 });

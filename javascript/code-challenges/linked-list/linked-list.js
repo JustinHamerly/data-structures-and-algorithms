@@ -175,7 +175,25 @@ function zipLists (list1, list2){
   return zippedList;
 }
 
+function findMeanRecursive(list){
+  let sum = 0;
+  let counter = 0;
+  return doFindMean(list.head, sum, counter);
+}
+
+function doFindMean(node, sum, counter){
+  counter ++;
+  sum = sum + node.value;
+  if(node.next){
+    return doFindMean(node.next, sum, counter);
+  }else{
+    return (sum/counter);
+  }
+}
+
+
 module.exports = {
   LinkedList,
   zipLists,
+  findMeanRecursive,
 };
