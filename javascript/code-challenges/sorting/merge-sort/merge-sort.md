@@ -140,4 +140,4 @@ Tests written to prove the function performs the following tasks:
 - returns empty array when input array is empty
 - sorts 0 and negative values
 
-[insertionSort tests](../__tests__/mergeSort.test.js)
+[mergeSort tests](../__tests__/mergeSort.test.js)
