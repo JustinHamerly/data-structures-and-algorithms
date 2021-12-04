@@ -7,6 +7,7 @@ module.exports = class HashTable {
   constructor(size){
     this.size = size;
     this.map = new Array(size);
+    this.keys = [];
   }
 
   hash(key){
@@ -33,8 +34,8 @@ module.exports = class HashTable {
     if (bucketAtI){
       let current = bucketAtI.head;
       while(current){
-        if(current.value[key]){
-          return current.value[key];
+        if(current.value){
+          return current.value.value;
         }
         current = current.next;
       }
@@ -47,7 +48,8 @@ module.exports = class HashTable {
     let i = this.hash(key);
     let bucketAtI = this.map[i];
     let keyValue = {
-      [key]: value
+      key: key,
+      value: value,
     };
 
     if (bucketAtI){
@@ -56,6 +58,7 @@ module.exports = class HashTable {
       let list = new LinkedList();
       list.append(keyValue);
       this.map[i] = list;
+      this.keys.push(key);
     }
   }
 
