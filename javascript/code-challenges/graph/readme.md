@@ -70,4 +70,4 @@ This graph data structure implementation is represented as an adjacency list.  T
 5. Neighbors are returned with the weight between vertic included
 6. The proper size is returned, representing the number of vertic in the graph
 7. A graph with only one vertex and edge can be properly returned
-8. An empty graph properly returns null
+8. An error is thrown if an edge is created with vertices that don't exist
