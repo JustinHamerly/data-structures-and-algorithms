@@ -2,25 +2,6 @@
 
 const Graph = require('../graph');
 
-let graph = new Graph();
-
-let vertex1 = graph.addVertex(1);
-let vertex2 = graph.addVertex(2);
-let vertex3 = graph.addVertex(3);
-let vertex4 = graph.addVertex(4);
-let vertex5 = graph.addVertex(5);
-let vertex6 = graph.addVertex(6);
-
-graph.addDirectedEdge(vertex1, vertex3);
-graph.addDirectedEdge(vertex1, vertex5);
-graph.addDirectedEdge(vertex3, vertex6);
-graph.addDirectedEdge(vertex4, vertex2);
-graph.addDirectedEdge(vertex4, vertex5);
-graph.addDirectedEdge(vertex4, vertex6);
-graph.addDirectedEdge(vertex5, vertex1);
-graph.addDirectedEdge(vertex5, vertex2);
-graph.addDirectedEdge(vertex6, vertex5);
-
 describe('Graph built-in methods', () => {
 
   it('vertex can be successfully added to the graph', () => {
