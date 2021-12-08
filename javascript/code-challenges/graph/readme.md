@@ -20,7 +20,7 @@ This graph data structure implementation is represented as an adjacency list.  T
 > - Arguments: value
 > - Returns: The added vertex
 
-### **addEdge(vertex1, vertex2, weight)**
+### **addDirectedEdge(vertex1, vertex2, weight)**
 
 > *Adds a new edge between two vertices in the graph*  
 > *If specified, assign a weight to the edge*  
@@ -50,7 +50,7 @@ This graph data structure implementation is represented as an adjacency list.  T
 > - Arguments: vertex
 > - Returns: collection of edges
 
-### **size()**
+### **getSize()**
 
 > *Returns the total number of vertices in the graph*
 >
@@ -65,9 +65,9 @@ This graph data structure implementation is represented as an adjacency list.  T
 
 1. vertex can be successfully added to the graph
 2. An edge can be successfully added to the graph
-3. A collection of all vertic can be properly retrieved from the graph
+3. A collection of all vertices can be properly retrieved from the graph
 4. All appropriate neighbors can be retrieved from the graph
-5. Neighbors are returned with the weight between vertic included
-6. The proper size is returned, representing the number of vertic in the graph
+5. Neighbors are returned with the weight between vertices included
+6. The proper size is returned, representing the number of vertices in the graph
 7. A graph with only one vertex and edge can be properly returned
 8. An error is thrown if an edge is created with vertices that don't exist
