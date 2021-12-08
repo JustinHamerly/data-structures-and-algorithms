@@ -87,4 +87,52 @@ describe('Graph built-in methods', () => {
     expect(() => graph.addDirectedEdge(vertex1, vertex2)).toThrowError('invalid vertices');
   });
 
+  it('If all vertices are connected, breadthFirst will return the full set of vertices in the map with no repeats', () => {
+    let graph = new Graph();
+    let vertex1 = graph.addVertex(1);
+    let vertex2 = graph.addVertex(2);
+    let vertex3 = graph.addVertex(3);
+    let vertex4 = graph.addVertex(4);
+    let vertex5 = graph.addVertex(5);
+    let vertex6 = graph.addVertex(6);
+    graph.addDirectedEdge(vertex1, vertex2);
+    graph.addDirectedEdge(vertex1, vertex3);
+    graph.addDirectedEdge(vertex1, vertex4);
+    graph.addDirectedEdge(vertex1, vertex5);
+    graph.addDirectedEdge(vertex1, vertex6);
+    const breadthFirstSet = graph.breadthFirst(vertex1);
+    expect(graph.vertices).toStrictEqual(breadthFirstSet);
+  });
+
+  it('If no vertices are connected to the vertex argument, breadthFirst will return a set with just the one vertex', () => {
+    let graph = new Graph();
+    let vertex1 = graph.addVertex(1);
+    graph.addVertex(2);
+    graph.addVertex(3);
+    graph.addVertex(4);
+    graph.addVertex(5);
+    graph.addVertex(6);
+    const breadthFirstSet = graph.breadthFirst(vertex1);
+    expect(breadthFirstSet.size).toBe(1);
+  });
+
+  it('Only the connected vertices will be returned in the breadthFirst set', () => {
+    let graph = new Graph();
+    let vertex1 = graph.addVertex(1);
+    let vertex2 = graph.addVertex(2);
+    graph.addVertex(3);
+    let vertex4 = graph.addVertex(4);
+    let vertex5 = graph.addVertex(5);
+    let vertex6 = graph.addVertex(6);
+    graph.addDirectedEdge(vertex1, vertex2);
+    graph.addDirectedEdge(vertex1, vertex4);
+    graph.addDirectedEdge(vertex1, vertex6);
+    graph.addDirectedEdge(vertex4, vertex5);
+    graph.addDirectedEdge(vertex4, vertex6);
+    graph.addDirectedEdge(vertex6, vertex2);
+    graph.addDirectedEdge(vertex6, vertex1);
+    const breadthFirstSet = graph.breadthFirst(vertex1);
+    expect(breadthFirstSet.size).toBe(5);
+  });
+
 });

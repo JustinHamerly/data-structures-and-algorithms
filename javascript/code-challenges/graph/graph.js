@@ -38,4 +38,34 @@ module.exports = class Graph {
     return this.vertices.size;
   }
 
+  breadthFirst(vertex){
+    const queue = [];
+    const visitedNodes = new Set();
+
+    queue.push(vertex);
+    visitedNodes.add(vertex);
+
+
+    while(queue.length) {
+
+      const current = queue.shift();
+
+      let neighbors = this.getNeighbors(current);
+
+      for (let edge of neighbors) {
+
+        let neighbor = edge.vertex;
+
+        if (!visitedNodes.has(neighbor)) {
+          queue.push(neighbor);
+          visitedNodes.add(neighbor);
+        } else {
+          continue;
+        }
+      }
+    }
+
+    return visitedNodes;
+  }
+
 };
