@@ -9,6 +9,10 @@ This graph data structure implementation is represented as an adjacency list.  T
 > 1. [graph class](./graph.js)
 > 2. [graph class tests](./__tests__/graph.test.js)  
 
+## Visual Graph Guide
+
+![Visual Graph Guide](./img/graphGuide.png)
+
 ## Methods
 
 ### **addVertex(val)**
