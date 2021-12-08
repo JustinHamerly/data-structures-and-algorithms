@@ -95,7 +95,7 @@ describe('Graph built-in methods', () => {
     expect(graph.vertices.size).toBe(1);
     expect(graph.edges.size).toBe(1);
     expect(graph).toBeTruthy();
-  }); 
+  });
 
   it('An error is thrown when invalid vertices are passed into addDirectedEdge', () => {
     let graph = new Graph();
