@@ -10,10 +10,14 @@ The class can use built-in functions to add nodes, add connections to nodes, ret
 
 Traversal is implemented using a breadth first method.
 
+A function for checking the cost of a trip is also included, assuming a Graph of vertices representing cities and edges representing the cost of the connection.
+
 >Code and Tests
 >
 > 1. [graph class with methods](./graph.js)
 > 2. [graph class tests](./__tests__/graph.test.js)  
+> 3. [businessTrip function](./businessTrip.js)  
+> 4. [businessTrip function tests](./__tests__/businessTrip.test.js)  
 
 ## Visual Graph Guide
 
@@ -78,6 +82,18 @@ Traversal is implemented using a breadth first method.
 > - Arguments: vertex
 > - Returns: A collection of nodes in the order they were visited.
 
+### **businessTrip(graph, cities)**
+
+> *Returns a sum of all the weights of the edges if each city in the cities array connects*
+>
+> *Returns true if vertices (cities) connect in the order of the array, returns false if vertices (cities) don't connect.
+>
+> - Arguments: a graph and an array of vertices in the graph
+> - Returns: an object with two properties:  
+> { connects: *true or false*,  
+>  cost: *a price in dollars* }  
+
+
 ## Tests
 
 ### Tests for the graph test assert the following
@@ -93,3 +109,9 @@ Traversal is implemented using a breadth first method.
 9. If all vertices are connected, breadthFirst will return the full set of vertices in the map with no repeats
 10. If no vertices are connected to the vertex argument, breadthFirst will return a set with just the one vertex
 11. Only the connected vertices will be returned in the breadthFirst set
+
+### Tests for the businessTrip function assert the following
+
+1. when a trip is valid, the function returns true with a cost for the trip.
+2. when a trip doesn't connect, the function returns false with a message for unconnected trips
+3. when a city isn't in the graph, an error will be thrown
