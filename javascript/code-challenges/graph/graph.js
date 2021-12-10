@@ -41,21 +41,13 @@ module.exports = class Graph {
   breadthFirst(vertex){
     const queue = [];
     const visitedNodes = new Set();
-
     queue.push(vertex);
     visitedNodes.add(vertex);
-
-
     while(queue.length) {
-
       const current = queue.shift();
-
       let neighbors = this.getNeighbors(current);
-
       for (let edge of neighbors) {
-
         let neighbor = edge.vertex;
-
         if (!visitedNodes.has(neighbor)) {
           queue.push(neighbor);
           visitedNodes.add(neighbor);
@@ -64,8 +56,25 @@ module.exports = class Graph {
         }
       }
     }
-
     return visitedNodes;
   }
 
+  depthFirst(vertex){
+    const visitedNodes = new Set();
+    return this.doTraversal(vertex, visitedNodes);
+  }
+
+  doTraversal(vertex, set){
+    set.add(vertex);
+    let neighbors = this.getNeighbors(vertex);
+    for(let neighbor of neighbors){
+      if (!set.has(neighbor.vertex)){
+        this.doTraversal(neighbor.vertex, set);
+      }else{
+        continue;
+      }
+    }
+    return set;
+  }
 };
+

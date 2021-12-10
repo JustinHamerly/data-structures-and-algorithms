@@ -135,4 +135,49 @@ describe('Graph built-in methods', () => {
     expect(breadthFirstSet.size).toBe(5);
   });
 
+  it('returns a set of nodes with the depthFirst method', () => {
+    let graph = new Graph();
+    let vertex1 = graph.addVertex(1);
+    let vertex2 = graph.addVertex(2);
+    let vertex3 = graph.addVertex(3);
+    let vertex4 = graph.addVertex(4);
+    graph.addDirectedEdge(vertex1, vertex2);
+    graph.addDirectedEdge(vertex2, vertex3);
+    graph.addDirectedEdge(vertex3, vertex4);
+    let results = graph.depthFirst(vertex1);
+    expect(results.size).toBe(4);
+  });
+
+  it('returns a set of unique nodes even if a node is connected multiple times in a graph', () => {
+    let graph = new Graph();
+    let vertex1 = graph.addVertex(1);
+    let vertex2 = graph.addVertex(2);
+    let vertex3 = graph.addVertex(3);
+    let vertex4 = graph.addVertex(4);
+    graph.addDirectedEdge(vertex1, vertex2);
+    graph.addDirectedEdge(vertex2, vertex3);
+    graph.addDirectedEdge(vertex2, vertex1);
+    graph.addDirectedEdge(vertex3, vertex4);
+    graph.addDirectedEdge(vertex3, vertex1);
+    graph.addDirectedEdge(vertex4, vertex1);
+    graph.addDirectedEdge(vertex4, vertex2);
+    graph.addDirectedEdge(vertex4, vertex3);
+    let results = graph.depthFirst(vertex1);
+    expect(results.size).toBe(4);
+  });
+
+  it('returns a set of unique nodes even if a node is connected multiple times in a graph', () => {
+    let graph = new Graph();
+    let vertex1 = graph.addVertex(1);
+    let vertex2 = graph.addVertex(2);
+    let vertex3 = graph.addVertex(3);
+    let vertex4 = graph.addVertex(4);
+    graph.addDirectedEdge(vertex2, vertex1);
+    graph.addDirectedEdge(vertex1, vertex4);
+    graph.addDirectedEdge(vertex4, vertex3);
+    let results = graph.depthFirst(vertex2);
+    let values = Array.from(results);
+    expect(values).toStrictEqual([vertex2, vertex1, vertex4, vertex3]);
+  });
+
 });
