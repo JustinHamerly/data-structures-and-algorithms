@@ -8,7 +8,7 @@ The adjacencies are kept in a javascript Map on the constructor as a `.edges` pr
 
 The class can use built-in functions to add nodes, add connections to nodes, retrieve nodes in the graph, retreive the neighbors in a node, as well as tell us the size of the graph.
 
-Traversal is implemented using a breadth first method.
+Traversal is implemented using a breadth first method, and an in-order depth first method.
 
 A function for checking the cost of a trip is also included, assuming a Graph of vertices representing cities and edges representing the cost of the connection.
 
@@ -75,9 +75,18 @@ A function for checking the cost of a trip is also included, assuming a Graph of
 
 ### **breadthFirst(vertex)**
 
-> *Returns the total number of vertices in the graph*
+> *Display the collection of nodes*
 >
-> *Display the collection of nodes*: Time and space are O(n) because of the implementation of a queue.  At worst, every vertex is visited and added to the queue, then dequeued and added to a set.
+> Time and space are O(n) because of the implementation of a queue.  At worst, every vertex is visited and added to the queue, then dequeued and added to a set.
+>
+> - Arguments: vertex
+> - Returns: A collection of nodes in the order they were visited.
+
+### **depthFirst(vertex)**
+
+> *Returns a set of the vertices in-order*
+>
+> Time and space are O(n) because we recurse through every possible node.  At worst, every vertex is visited and added to the queue, then dequeued and added to a set.
 >
 > - Arguments: vertex
 > - Returns: A collection of nodes in the order they were visited.
@@ -92,7 +101,6 @@ A function for checking the cost of a trip is also included, assuming a Graph of
 > - Returns: an object with two properties:  
 > { connects: *true or false*,  
 >  cost: *a price in dollars* }  
-
 
 ## Tests
 
@@ -109,6 +117,9 @@ A function for checking the cost of a trip is also included, assuming a Graph of
 9. If all vertices are connected, breadthFirst will return the full set of vertices in the map with no repeats
 10. If no vertices are connected to the vertex argument, breadthFirst will return a set with just the one vertex
 11. Only the connected vertices will be returned in the breadthFirst set
+12. A set of nodes is returned from depthFirst
+13. If a node is listed as a neighbor to many different nodes, the node will only be added once to the set.
+14. The nodes are returned in the order they were visited.
 
 ### Tests for the businessTrip function assert the following
 
