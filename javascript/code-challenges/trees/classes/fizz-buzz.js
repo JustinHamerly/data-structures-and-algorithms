@@ -12,14 +12,14 @@ module.exports = function fizzbuzzTree(tree) {
   return newTree;
 };
 
-function createNewTree(oldnode, newnode) {
-  if (!oldnode.children.length) {
+function createNewTree(originalNode, newNode) {
+  if (!originalNode.children.length) {
     return;
   }
-  for (let i = 0; i < oldnode.children.length; i++) {
-    let newChild = new Node(changeValueFB(oldnode.children[i].value));
-    newnode.children.push(newChild);
-    createNewTree(oldnode.children[i], newnode.children[i]);
+  for (let i = 0; i < originalNode.children.length; i++) {
+    let newChild = new Node(changeValueFB(originalNode.children[i].value));
+    newNode.children.push(newChild);
+    createNewTree(originalNode.children[i], newNode.children[i]);
   }
 }
 
