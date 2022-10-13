@@ -13,13 +13,13 @@ module.exports = function fizzbuzzTree(tree) {
 };
 
 function createNewTree(oldnode, newnode) {
-  if (!oldnode.child.length) {
+  if (!oldnode.children.length) {
     return;
   }
-  for (let i = 0; i < oldnode.child.length; i++) {
-    let newChild = new Node(changeValueFB(oldnode.child[i].value));
-    newnode.child.push(newChild);
-    createNewTree(oldnode.child[i], newnode.child[i]);
+  for (let i = 0; i < oldnode.children.length; i++) {
+    let newChild = new Node(changeValueFB(oldnode.children[i].value));
+    newnode.children.push(newChild);
+    createNewTree(oldnode.children[i], newnode.children[i]);
   }
 }
 

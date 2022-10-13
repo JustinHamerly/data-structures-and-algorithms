@@ -3,6 +3,6 @@
 module.exports = class Node {
   constructor(value){
     this.value = value;
-    this.child = [];
+    this.children = [];
   }
 };
