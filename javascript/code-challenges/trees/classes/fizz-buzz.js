@@ -16,10 +16,11 @@ function createNewTree(originalNode, newNode) {
   if (!originalNode.children.length) {
     return;
   }
-  for (let i = 0; i < originalNode.children.length; i++) {
-    let newChild = new Node(changeValueFB(originalNode.children[i].value));
+  for (let originalChild of originalNode.children) {
+    let newChild = new Node(changeValueFB(originalChild.value));
     newNode.children.push(newChild);
-    createNewTree(originalNode.children[i], newNode.children[i]);
+    let index = newNode.children.length - 1;
+    createNewTree(originalChild, newNode.children[index]);
   }
 }
 
